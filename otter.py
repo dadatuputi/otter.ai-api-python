@@ -23,7 +23,7 @@ class OtterSession:
         self.session.headers.update({'x-csrftoken': _csrf_token})
 
         _r_login = self.session.get(API_BASE_URL + '/login', params={'username': self.email})
-        if _r_login.status_code is not 200:
+        if _r_login.status_code != 200:
             raise NotLoggedInError()
 
         # Get user data
